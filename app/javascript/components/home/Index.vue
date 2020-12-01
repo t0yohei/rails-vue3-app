@@ -27,9 +27,7 @@ export default {
   },
   data() {
     return {
-      title: this.initialData.title,
-      description: this.initialData.description,
-      contents: this.initialData.contents
+      ...this.initialData
     }
   },
 };
