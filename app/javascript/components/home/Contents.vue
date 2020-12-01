@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import { ref } from "vue";
+
 export default {
   props: {
     contents: {
@@ -26,10 +28,12 @@ export default {
       default: () => {}
     }
   },
-  methods: {
-    changeLocation(url) {
+
+  setup(props) {
+    const changeLocation = url => {
       window.location.href = url;
     }
+    return { changeLocation }
   }
 };
 </script>

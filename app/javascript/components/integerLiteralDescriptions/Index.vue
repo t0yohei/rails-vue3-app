@@ -9,35 +9,33 @@
 import HeaderView from "../HeaderView.vue";
 import Contents from "./Contents.vue";
 import Axios from "axios";
+import { ref, onMounted } from "vue";
 
 export default {
   components: {
     HeaderView,
     Contents
   },
-  data() {
-    return {
-      title: "title",
-      description: "description",
-      contents: []
-    };
-  },
 
-  created: function() {
-    this.updateContents();
-  },
+  setup() {
+    const title = ref('')
+    const description = ref('')
+    const contents = ref([])
 
-  methods: {
-    updateContents() {
+    const updateContents = () => {
       Axios.get("/api/v1/integer_literal_descriptions/index.json").then(
         response => {
           const responseData = response.data;
-          this.title = responseData.title;
-          this.description = responseData.description;
-          this.contents = responseData.contents;
+          title.value = responseData.title;
+          description.value = responseData.description;
+          contents.value = responseData.contents;
         }
       );
     }
+
+    onMounted(updateContents)
+
+    return { title, description, contents }
   }
 };
 </script>
