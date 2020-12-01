@@ -32,7 +32,9 @@ export default {
       Axios.get("/api/v1/integer_literal_descriptions/index.json").then(
         response => {
           const responseData = response.data;
-          console.log(responseData);
+          this.title = responseData.title;
+          this.description = responseData.description;
+          this.contents = responseData.contents;
         }
       );
     }
