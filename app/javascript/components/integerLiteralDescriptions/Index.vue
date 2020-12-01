@@ -8,6 +8,7 @@
 <script>
 import HeaderView from "../HeaderView.vue";
 import Contents from "./Contents.vue";
+import Axios from "axios";
 
 export default {
   components: {
@@ -20,6 +21,21 @@ export default {
       description: "description",
       contents: []
     };
+  },
+
+  created: function() {
+    this.updateContents();
+  },
+
+  methods: {
+    updateContents() {
+      Axios.get("/api/v1/integer_literal_descriptions/index.json").then(
+        response => {
+          const responseData = response.data;
+          console.log(responseData);
+        }
+      );
+    }
   }
 };
 </script>
