@@ -5,11 +5,12 @@
 </template>
 
 <script>
+import { ref } from 'vue'
+
 export default {
-  data() {
-    return {
-      message: "Hello Vue!"
-    }
+  setup() {
+    const message = ref('Hello World')
+    return { message }
   }
 }
 </script>
