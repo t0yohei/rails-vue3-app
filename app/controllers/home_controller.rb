@@ -13,12 +13,12 @@ class HomeController < ApplicationController
         {
           name: 'Qiitaページ',
           text: 'Qiita',
-          url: 'https://qiita.com/t0yohei/items/d516fefaaad69b4022ec'
+          url: 'https://qiita.com/t0yohei/items/cd11b15642fbb26f71e2'
         },
         {
           name: 'ソースコード',
           text: 'GitHub',
-          url: 'https://github.com/t0yohei/rails-vue-app'
+          url: 'https://github.com/t0yohei/rails-vue3-app'
         }
       ],
       inner_links: [{
