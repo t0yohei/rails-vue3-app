@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h1>{{ initialData.title }}</h1>
-    <p>{{ initialData.description }}</p>
+    <h1>{{ title }}</h1>
+    <p>{{ description }}</p>
     <table class="contents-table">
       <tr>
         <th>名前</th>
         <th>リンク</th>
       </tr>
-      <tr v-for="outer_link in initialData.contents.outer_links" v-bind:key="outer_link.name">
+      <tr v-for="outer_link in contents.outer_links" v-bind:key="outer_link.name">
         <td>{{ outer_link.name }}</td>
         <td>
           <a v-bind:href="outer_link.url">{{ outer_link.text }}</a>
@@ -23,6 +23,13 @@ export default {
     initialData: {
       type: Object,
       default: () => {}
+    }
+  },
+  data() {
+    return {
+      title: this.initialData.title,
+      description: this.initialData.description,
+      contents: this.initialData.contents
     }
   },
 };
